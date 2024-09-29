@@ -150,7 +150,7 @@ export default function Root() {
               <Image
                 borderRadius="full"
                 boxSize="75px"
-                src="/img/img-mascot.png"
+                src="img/img-mascot.png"
               />
               <VStack>
                 <Text fontSize="23px">중앙도서관</Text>

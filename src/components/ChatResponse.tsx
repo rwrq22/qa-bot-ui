@@ -11,7 +11,7 @@ export default function ChatResponse({ text }: IResponseProps) {
         marginTop="22px"
         borderRadius="full"
         boxSize="50px"
-        src="/img/img-mascot.png"
+        src="img/img-mascot.png"
       />
       <VStack align={"left"}>
         <Text paddingLeft={"5px"} fontSize="16px">
