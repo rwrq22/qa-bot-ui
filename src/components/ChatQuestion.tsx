@@ -1,10 +1,10 @@
 import { Box, HStack, Text, VStack } from "@chakra-ui/react";
 
-interface IMessageProps {
+interface IChatQuestionProps {
   text: string;
 }
 
-export default function Message({ text }: IMessageProps) {
+export default function ChatQuestion({ text }: IChatQuestionProps) {
   return (
     <HStack
       justifyContent={"flex-end"}

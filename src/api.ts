@@ -15,7 +15,7 @@ export interface ISendMessageVariables {
 
 export const createRoom = () =>
   instance
-    .post(`room`, {
+    .post(`room/`, {
       headers: {
         "X-CSRFToken": Cookie.get("csrftoken") || "",
       },
@@ -37,23 +37,14 @@ export const getChatRoom = async () => {
 };
 
 export const deleteChatRoom = () =>
-  instance.delete("room").then((response) => response.data);
+  instance.delete("room/").then((response) => response.data);
 
 export const getMessages = () =>
-  instance.get("messages").then((response) => response.data);
+  instance.get("messages/").then((response) => response.data);
 
 export const sendMessage = (variables: ISendMessageVariables) =>
   instance
-    .post(`messages`, variables, {
-      headers: {
-        "X-CSRFToken": Cookie.get("csrftoken") || "",
-      },
-    })
-    .then((response) => response.data);
-
-export const sendInputText = (variables: ISendMessageVariables) =>
-  instance
-    .post(`inputs`, variables, {
+    .post(`messages/`, variables, {
       headers: {
         "X-CSRFToken": Cookie.get("csrftoken") || "",
       },
@@ -61,4 +52,3 @@ export const sendInputText = (variables: ISendMessageVariables) =>
     .then((response) => response.data);
 
 export const deleteMessages = () => instance.delete("messages");
-export const deleteInputs = () => instance.delete("inputs");
