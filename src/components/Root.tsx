@@ -27,6 +27,7 @@ import {
   ISendMessageVariables,
   sendMessage,
 } from "../api";
+import { Helmet } from "react-helmet";
 
 interface IMessage {
   pk: number;
@@ -116,9 +117,31 @@ export default function Root() {
     }
   }, [onSubmit]);
 
+  /* 모바일 환경에서도 vh=100% 맞추기 */
+  useEffect(() => {
+    const setAppHeight = () => {
+      const docHeight = window.innerHeight + "px";
+      document.documentElement.style.setProperty("--app-height", docHeight);
+    };
+    window.addEventListener("resize", setAppHeight);
+    setAppHeight(); // 초기 설정
+    return () => {
+      window.removeEventListener("resize", setAppHeight);
+    };
+  }, []);
+
   return (
     <Box width="100%" display="flex" justifyContent={"center"}>
-      <VStack width="100%" height="100vh" maxW="610px" spacing={0}>
+      <Helmet>
+        <title>QA-bot</title>
+        <link
+          rel="icon"
+          type="image/png"
+          href="img/fish_ocean_sea.png"
+          sizes="16x16"
+        />
+      </Helmet>
+      <VStack width="100%" height="var(--app-height)" maxW="610px" spacing={0}>
         {/* Header */}
         <HStack
           width="100%"
