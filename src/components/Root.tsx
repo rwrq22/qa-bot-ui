@@ -154,6 +154,9 @@ export default function Root() {
         >
           <HStack>
             <IconButton
+              isDisabled
+              pointerEvents="none"
+              cursor="default"
               marginRight="5"
               bg="gray.100"
               borderRadius={"100%"}
@@ -172,6 +175,9 @@ export default function Root() {
           </HStack>
           <HStack>
             <IconButton
+              isDisabled
+              pointerEvents="none"
+              cursor="default"
               marginRight="3"
               fontSize="30px"
               aria-label="Library link"
@@ -220,6 +226,7 @@ export default function Root() {
             disabled={isSubmitting}
             autoFocus
             required
+            maxLength={300}
             type="text"
             autoComplete="off"
             boxShadow="md"
@@ -229,7 +236,7 @@ export default function Root() {
             placeholder="Send a message."
             size="lg"
             variant={"outline"}
-            {...register("question")}
+            {...register("question", { maxLength: 300 })}
           />
           {mutation.isError ? <Text>Something went wrong.</Text> : null}
           <IconButton
