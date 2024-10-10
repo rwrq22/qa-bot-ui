@@ -86,7 +86,7 @@ export default function Root() {
     await mutation.mutateAsync(data);
     setNextId(nextId + 1);
     setIsSubmitting(false);
-    reset();
+    reset({ question: "" });
   };
 
   const checkChatRoom = async () => {
